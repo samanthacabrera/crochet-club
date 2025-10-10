@@ -1,6 +1,9 @@
 import { useState } from "react";
 
 function App() {
+  const links = ["Welcome", "About", "Calendar", "Contact"];
+
+  // Calendar 
   const [menuOpen, setMenuOpen] = useState(false);
 
   const today = new Date();
@@ -15,8 +18,6 @@ function App() {
   const meetingTime = "18:00 – 20:00";
   const meetingLocation = "Domplein 9, 3512 JE Utrecht";
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(meetingLocation)}`;
-
-  const links = ["Welcome", "About", "Calendar", "Contact"];
 
   return (
     <>
@@ -98,7 +99,7 @@ function App() {
           </p>
 
           <div className="flex flex-col space-y-4 border-4 border-pink-200 bg-pink-50 rounded-2xl mt-8 p-6">
-            <h3 className="text-3xl uppercase font-extrabold text-pink-500">Next Meeting</h3>
+            <h3 className="text-3xl uppercase font-bold text-pink-500">Next Meeting</h3>
             <div className="font-bold">
               <p>Date: {formattedDate}</p>
               <p>Time: {meetingTime}</p>
