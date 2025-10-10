@@ -97,20 +97,31 @@ function App() {
             We meet <strong>every Monday</strong> from <strong>18:00 - 20:00</strong>!
           </p>
 
-          <div className="">
-            <h3>Next Meeting</h3>
-            <p>{formattedDate}</p>
-            <p>{meetingTime}</p>
-            <p>{meetingLocation}</p>
-            <a
-              href={googleMapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white bg-pink-500 rounded px-2 py-1"
-            >
+          <div className="flex flex-col space-y-4 border-4 border-pink-200 bg-pink-50 rounded-2xl mt-8 p-6">
+            <h3 className="text-3xl uppercase font-extrabold text-pink-500">Next Meeting</h3>
+            <div className="font-bold">
+              <p>Date: {formattedDate}</p>
+              <p>Time: {meetingTime}</p>
+              <p>Location: {meetingLocation}</p>
+            </div>
+            <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="px-6 py-2 w-fit text-sm font-bold rounded-lg bg-white text-pink-500 hover:text-white hover:bg-pink-500 transition-all duration-300 transform">
               Get Directions
             </a>
           </div>
+        </section>
+
+        {/* Contact */}
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>
+            If you have any questions or are interested in hosting an event at your venue, we’d love to hear from you!
+          </p>
+          <a
+            href="mailto:contact@gmail.com"
+            className="text-pink-500 hover:underline mt-1"
+          >
+            contact@gmail.com
+          </a>
         </section>
       </main>
     </>

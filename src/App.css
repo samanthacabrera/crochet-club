@@ -10,4 +10,5 @@ html {
   font-family: Helvetica, sans-serif;
   letter-spacing: 2px;
   line-height: 300%;
+  scroll-padding-top: 8rem;
 }
