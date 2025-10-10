@@ -74,57 +74,72 @@ function App() {
         )}
       </nav>
 
-      <main className="flex flex-col space-y-24 my-24 mx-0 md:mx-[30vw]">
-        {/* Welcome */}
-        <section id="welcome">
-          <h2>Welcome!</h2>
-          <p>Knotty & Nice: A Social Crafting Club is a modern makers’ collective for anyone who loves to create. Whether you’re into crocheting, knitting, embroidery, or any other craft, this is your place to create and connect with others who share your passion.</p>
-        </section>
-      
-        {/* About */}
-        <section id="about">
-          <h2>About</h2>
-          <ul>
-            <li>Who is welcomed? <span>All skill levels are welcomed.</span></li>
-            <li>What do I need to bring? <span>Bring your own supplies and current project.</span></li>
-            <li>Do I need to buy anything? <span>We ask that you please support our host venue with a drink or food purchase.</span></li>
-          </ul>
-        </section>
-      
-        {/* Calendar */}
-        <section id="calendar">
-          <h2>Calendar</h2>
-          <p>
-            We meet <strong>every Monday</strong> from <strong>18:00 - 20:00</strong>!
-          </p>
+      <main className="h-screen w-screen overflow-y-scroll scroll-snap-y scroll-snap-mandatory">
+      {/* Welcome */}
+      <section
+        id="welcome"
+        className="h-screen w-screen flex flex-col justify-center items-center scroll-snap-start bg-pink-50 px-6"
+      >
+        <h2 className="text-5xl md:text-6xl font-bold text-pink-500 uppercase mb-6">Welcome!</h2>
+        <p className="text-lg md:text-2xl text-pink-500 max-w-prose text-center leading-relaxed">
+          Knotty & Nice: A Social Crafting Club is a modern makers’ collective for anyone who loves to create. Whether you’re into crocheting, knitting, embroidery, or any other craft, this is your place to create and connect with others who share your passion.
+        </p>
+      </section>
 
-          <div className="flex flex-col space-y-4 border-4 border-pink-200 bg-pink-50 rounded-2xl mt-8 p-6">
-            <h3 className="text-3xl uppercase font-bold text-pink-500">Next Meeting</h3>
-            <div className="font-bold">
-              <p>Date: {formattedDate}</p>
-              <p>Time: {meetingTime}</p>
-              <p>Location: {meetingLocation}</p>
-            </div>
-            <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="px-6 py-2 w-fit text-sm font-bold rounded-lg bg-white text-pink-500 hover:text-white hover:bg-pink-500 transition-all duration-300 transform">
-              Get Directions
-            </a>
+      {/* About */}
+      <section
+        id="about"
+        className="h-screen w-screen flex flex-col justify-center items-center scroll-snap-start text-pink-500 bg-yellow-50 px-6"
+      >
+        <h2 className="text-5xl md:text-6xl font-extrabold  mb-6">About</h2>
+        <ul className="text-lg md:text-xl max-w-prose leading-relaxed space-y-2">
+          <li>Who is welcomed? <span className="font-semibold">All skill levels are welcomed.</span></li>
+          <li>What do I need to bring? <span className="font-semibold">Bring your own supplies and current project.</span></li>
+          <li>Do I need to buy anything? <span className="font-semibold">Please support our host venue with a drink or food purchase.</span></li>
+        </ul>
+      </section>
+
+      {/* Calendar */}
+      <section
+        id="calendar"
+        className="h-screen w-screen flex flex-col justify-center items-center scroll-snap-start bg-pink-100 px-6"
+      >
+        <h2 className="text-5xl md:text-6xl font-extrabold text-pink-500 mb-6">Calendar</h2>
+        <p className="text-lg md:text-xl text-pink-500 mb-4">
+          We meet <strong>every Monday</strong> from <strong>18:00 - 20:00</strong>!
+        </p>
+        <div className="flex flex-col space-y-4 border-dashed border-4 border-pink-200 bg-pink-50 rounded-2xl mt-8 p-6">
+          <h3 className="text-3xl uppercase font-bold text-pink-500">Next Meeting</h3>
+          <div className="font-bold">
+            <p>Date: {formattedDate}</p>
+            <p>Time: {meetingTime}</p>
+            <p>Location: {meetingLocation}</p>
           </div>
-        </section>
-
-        {/* Contact */}
-        <section id="contact">
-          <h2>Contact</h2>
-          <p>
-            If you have any questions or are interested in hosting an event at your venue, we’d love to hear from you!
-          </p>
           <a
-            href="mailto:contact@gmail.com"
-            className="text-pink-500 hover:underline mt-1"
+            href={googleMapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-2 w-fit text-sm font-bold rounded-lg bg-white text-pink-500 hover:text-white hover:bg-pink-500 transition-all duration-300 transform"
           >
-            contact@gmail.com
+            Get Directions
           </a>
-        </section>
-      </main>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section
+        id="contact"
+        className="h-screen w-screen flex flex-col justify-center items-center scroll-snap-start text-pink-500 bg-yellow-50 px-6"
+      >
+        <h2 className="text-5xl md:text-6xl font-extrabold mb-6">Contact</h2>
+        <p className="text-lg md:text-xl mb-4 text-center">
+          If you have any questions or are interested in hosting an event at your venue, we’d love to hear from you!
+        </p>
+        <a href="mailto:contact@gmail.com" className="hover:underline">
+          contact@gmail.com
+        </a>
+      </section>
+    </main>
     </>
   )
 }
