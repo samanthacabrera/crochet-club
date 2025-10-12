@@ -1,13 +1,17 @@
 import { useState } from "react";
+import { translations } from "./translations";
 import { FaFacebookF, FaPinterest, FaInstagram } from "react-icons/fa";
 import { FiLink } from "react-icons/fi";
 
 function App() {
   const links = ["Welcome", "About", "Calendar", "Contact"];
 
+  // Translator 
+  const [lang, setLang] = useState("en"); 
+  const t = translations[lang];
+
   // Calendar 
   const [menuOpen, setMenuOpen] = useState(false);
-
   const today = new Date();
   const nextMonday = new Date(today);
   nextMonday.setDate(today.getDate() + ((1 + 7 - today.getDay()) % 7 || 7));
@@ -16,7 +20,6 @@ function App() {
     month: "long",
     day: "numeric",
   });
-
   const meetingTime = "18:00 – 20:00";
   const meetingLocation = "Domplein 9, 3512 JE Utrecht";
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(meetingLocation)}`;
@@ -48,6 +51,12 @@ function App() {
                 {link}
               </a>
             ))}
+            <button
+              onClick={() => setLang(lang === "en" ? "nl" : "en")}
+              className="px-3 py-1 rounded-lg bg-white text-pink-500 font-bold hover:bg-pink-500 hover:text-white transition-all duration-300"
+            >
+              {lang === "en" ? "NL" : "EN"}
+            </button>
           </div>
 
           <button
@@ -72,9 +81,16 @@ function App() {
                 {link}
               </a>
             ))}
+            <button
+              onClick={() => setLang(lang === "en" ? "nl" : "en")}
+              className="px-3 py-1 rounded-lg bg-white text-pink-500 font-bold hover:bg-pink-500 hover:text-white transition-all duration-300"
+            >
+              {lang === "en" ? "NL" : "EN"}
+            </button>
           </div>
         )}
       </nav>
+
 
       <main className="h-screen w-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
       {/* Welcome */}
@@ -82,10 +98,8 @@ function App() {
         id="welcome"
         className="h-screen w-screen flex flex-col justify-center items-center snap-start bg-pink-100 px-6"
       >
-        <h2 className="text-5xl md:text-6xl font-bold text-pink-500 uppercase mb-6">Welcome!</h2>
-        <p className="text-lg md:text-2xl text-pink-500 max-w-prose text-center leading-relaxed">
-          Knotty & Nice: A Social Crafting Club is a modern makers’ collective for anyone who loves to create. Whether you’re into crocheting, knitting, embroidery, or any other craft, this is your place to create and connect with others who share your passion.
-        </p>
+        <h2 className="text-5xl md:text-6xl font-bold text-pink-500 uppercase mb-6">{t.welcomeTitle}</h2>
+        <p className="text-lg md:text-2xl text-pink-500 max-w-prose text-center leading-relaxed">{t.welcomeText}</p>
       </section>
 
       {/* About */}
@@ -93,11 +107,11 @@ function App() {
         id="about"
         className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6"
       >
-        <h2 className="text-5xl md:text-6xl font-extrabold  mb-6">About</h2>
+        <h2 className="text-5xl md:text-6xl font-extrabold  mb-6">{t.aboutTitle}</h2>
         <ul className="text-lg md:text-xl max-w-prose leading-relaxed space-y-2">
-          <li>Who is welcomed? <span className="font-semibold">All skill levels are welcomed.</span></li>
-          <li>What do I need to bring? <span className="font-semibold">Bring your own supplies and current project.</span></li>
-          <li>Do I need to buy anything? <span className="font-semibold">Please support our host venue with a drink or food purchase.</span></li>
+          {t.aboutList.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
         </ul>
       </section>
 
@@ -106,16 +120,14 @@ function App() {
         id="calendar"
         className="h-screen w-screen flex flex-col justify-center items-center snap-start bg-pink-100 px-6"
       >
-        <h2 className="text-5xl md:text-6xl font-extrabold text-pink-500 mb-6">Calendar</h2>
-        <p className="text-lg md:text-xl text-pink-500 mb-4">
-          We meet <strong>every Monday</strong> from <strong>18:00 - 20:00</strong>!
-        </p>
+        <h2 className="text-5xl md:text-6xl font-extrabold text-pink-500 mb-6">{t.calendarTitle}</h2>
+        <p className="text-lg md:text-xl text-pink-500 mb-4">{t.calendarText}</p>
         <div className="flex flex-col space-y-4 border-dashed border-4 border-pink-200 bg-pink-50 rounded-2xl mt-8 p-6">
-          <h3 className="text-3xl uppercase font-bold text-pink-500">Next Meeting</h3>
+          <h3 className="text-3xl uppercase font-bold text-pink-500">{t.nextMeeting}</h3>
           <div className="font-bold">
-            <p>Date: {formattedDate}</p>
-            <p>Time: {meetingTime}</p>
-            <p>Location: {meetingLocation}</p>
+            <p>{t.dateLabel}: {formattedDate}</p>
+            <p>{t.timeLabel}: {meetingTime}</p>
+            <p>{t.locationLabel}: {meetingLocation}</p>
           </div>
           <a
             href={googleMapsUrl}
@@ -123,7 +135,7 @@ function App() {
             rel="noopener noreferrer"
             className="px-6 py-2 w-fit text-sm font-bold rounded-lg bg-white text-pink-500 hover:text-white hover:bg-pink-500 transition-all duration-300 transform"
           >
-            Get Directions
+            {t.directions}
           </a>
         </div>
       </section>
@@ -133,10 +145,8 @@ function App() {
         id="contact"
         className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6"
       >
-        <h2 className="text-5xl md:text-6xl font-extrabold mb-6">Contact</h2>
-        <p className="text-lg md:text-xl mb-4 text-center max-w-prose">
-          If you have any questions or are interested in hosting an event at your venue, we’d love to hear from you!
-        </p>
+        <h2 className="text-5xl md:text-6xl font-extrabold mb-6">{t.contactTitle}</h2>
+        <p className="text-lg md:text-xl mb-4 text-center max-w-prose">{t.contactText}</p>
         <a href="mailto:contact@gmail.com" className="hover:underline">
           contact@gmail.com
         </a>
@@ -144,13 +154,8 @@ function App() {
       
       {/* Share */}
       <section id="share" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
-        <h2 className="text-5xl md:text-6xl font-extrabold mb-6">
-          Spread the Word
-        </h2>
-        <p className="text-lg md:text-2xl max-w-prose text-center leading-relaxed mb-8">
-          Love <strong>Knotty & Nice</strong>? Help our creative community grow by sharing this page with your friends!
-        </p>
-
+          <h2 className="text-5xl md:text-6xl font-extrabold mb-6">{t.shareTitle}</h2>
+          <p className="text-lg md:text-2xl max-w-prose text-center leading-relaxed mb-8">{t.shareText}</p>
         <div className="flex flex-wrap justify-center gap-4 text-xl">
           {[
             { icon: <FaInstagram />, href: "" },
@@ -162,15 +167,15 @@ function App() {
               href={btn.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative px-3 py-1 rounded-lg uppercase font-bold text-white bg-pink-500 hover:bg-white hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center"
+              className="relative px-6 py-2 rounded-lg text-white bg-pink-500 hover:bg-white hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center"
             >
               {btn.icon}
             </a>
           ))}
 
           <button
-            onClick={() => { navigator.clipboard.writeText(window.location.href); alert("Link copied to clipboard!"); }}
-            className="relative px-3 py-1 rounded-lg uppercase font-bold text-white bg-pink-500 hover:bg-white hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center"
+              onClick={() => { navigator.clipboard.writeText(window.location.href); alert("Link copied to clipboard!"); }}
+              className="relative px-6 py-2 rounded-lg text-white bg-pink-500 hover:bg-white hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center"
           >
             <FiLink />
           </button>
