@@ -37,12 +37,12 @@ function App() {
               Knotty & Nice
             </a>
             <span className="text-sm md:text-base text-yellow-200 font-semibold uppercase">
-              A Social Crafting Club
+              {t.tagline}
             </span>
           </div>
 
           <div className="hidden md:flex space-x-8 text-lg md:text-xl font-bold text-white uppercase">
-            {links.map((link) => (
+            {t.navLinks.map((link) => (
               <a
                 key={link}
                 href={`#${link.toLowerCase()}`}
@@ -71,7 +71,7 @@ function App() {
 
         {menuOpen && (
           <div className="md:hidden bg-pink-500 text-white flex flex-col space-y-2 px-6 py-4 uppercase font-bold">
-            {links.map((link) => (
+            {t.navLinks.map((link) => (
               <a
                 key={link}
                 href={`#${link.toLowerCase()}`}

@@ -1,5 +1,7 @@
 export const translations = {
   en: {
+    navLinks: ["Welcome", "About", "Calendar", "Contact"],
+    tagline: "A Social Crafting Club",
     welcomeTitle: "Welcome!",
     welcomeText: "Knotty & Nice: A Social Crafting Club is a modern makers’ collective for anyone who loves to create. Whether you’re into crocheting, knitting, embroidery, or any other craft, this is your place to create and connect with others who share your passion.",
     aboutTitle: "About",
@@ -21,6 +23,8 @@ export const translations = {
     shareText: "Love Knotty & Nice? Help our creative community grow by sharing this page with your friends!"
   },
   nl: {
+    navLinks: ["Welkom", "Over", "Agenda", "Contact"],
+    tagline: "Een sociale knutselclub",
     welcomeTitle: "Welkom!",
     welcomeText: "Knotty & Nice: Een sociale knutselclub voor iedereen die van creatief bezig zijn houdt. Of je nu van haken, breien, borduren of een andere hobby houdt, dit is jouw plek om te maken en contact te maken met anderen die je passie delen.",
     aboutTitle: "Over",
