@@ -4,11 +4,15 @@ import { FaFacebookF, FaPinterest, FaInstagram } from "react-icons/fa";
 import { FiLink } from "react-icons/fi";
 
 function App() {
-  const links = ["Welcome", "About", "Calendar", "Contact"];
-
   // Translator 
   const [lang, setLang] = useState("en"); 
   const t = translations[lang];
+  const navLinks = [
+    { id: "welcome", label: t.navLinks[0] },
+    { id: "info", label: t.navLinks[1] },
+    { id: "calendar", label: t.navLinks[2] },
+    { id: "contact", label: t.navLinks[3] },
+  ];
 
   // Calendar 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -42,13 +46,13 @@ function App() {
           </div>
 
           <div className="hidden md:flex space-x-8 text-lg md:text-xl font-bold text-white uppercase">
-            {t.navLinks.map((link) => (
+            {navLinks.map((link) => (
               <a
                 key={link}
-                href={`#${link.toLowerCase()}`}
+                href={`#${link.id}`}
                 className="relative px-3 py-1 rounded-lg hover:bg-white hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1"
               >
-                {link}
+                {link.label}
               </a>
             ))}
             <button
@@ -71,14 +75,14 @@ function App() {
 
         {menuOpen && (
           <div className="md:hidden bg-pink-500 text-white flex flex-col space-y-2 px-6 py-4 uppercase font-bold">
-            {t.navLinks.map((link) => (
+            {navLinks.map((link) => (
               <a
                 key={link}
-                href={`#${link.toLowerCase()}`}
-                className="py-2 hover:bg-pink-500 rounded transition-colors duration-300"
+                href={`#${link.id}`}
+                className="relative px-3 py-1 rounded-lg hover:bg-white hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1"
                 onClick={() => setMenuOpen(false)} 
               >
-                {link}
+                {link.label}
               </a>
             ))}
             <button
@@ -94,34 +98,25 @@ function App() {
 
       <main className="h-screen w-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
       {/* Welcome */}
-      <section
-        id="welcome"
-        className="h-screen w-screen flex flex-col justify-center items-center snap-start bg-pink-100 px-6"
-      >
-        <h2 className="text-5xl md:text-6xl font-bold text-pink-500 uppercase mb-6">{t.welcomeTitle}</h2>
-        <p className="text-lg md:text-2xl text-pink-500 max-w-prose text-center leading-relaxed">{t.welcomeText}</p>
+      <section id="welcome" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
+        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-6">{t.welcomeTitle}</h2>
+        <p className="text-lg md:text-2xl max-w-prose text-center leading-relaxed">{t.welcomeText}</p>
       </section>
 
-      {/* About */}
-      <section
-        id="about"
-        className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6"
-      >
-        <h2 className="text-5xl md:text-6xl font-extrabold  mb-6">{t.aboutTitle}</h2>
+      {/* Info */}
+      <section id="info" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6">
+        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-6">{t.infoTitle}</h2>
         <ul className="text-lg md:text-xl max-w-prose leading-relaxed space-y-2">
-          {t.aboutList.map((item, i) => (
+          {t.infoList.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
         </ul>
       </section>
 
       {/* Calendar */}
-      <section
-        id="calendar"
-        className="h-screen w-screen flex flex-col justify-center items-center snap-start bg-pink-100 px-6"
-      >
-        <h2 className="text-5xl md:text-6xl font-extrabold text-pink-500 mb-6">{t.calendarTitle}</h2>
-        <p className="text-lg md:text-xl text-pink-500 mb-4">{t.calendarText}</p>
+      <section id="calendar" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
+        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-6">{t.calendarTitle}</h2>
+        <p className="text-lg md:text-xl mb-4">{t.calendarText}</p>
         <div className="flex flex-col space-y-4 border-dashed border-4 border-pink-200 bg-pink-50 rounded-2xl mt-8 p-6">
           <h3 className="text-3xl uppercase font-bold text-pink-500">{t.nextMeeting}</h3>
           <div className="font-bold">
@@ -142,10 +137,9 @@ function App() {
 
       {/* Contact */}
       <section
-        id="contact"
-        className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6"
+        id="contact" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6"
       >
-        <h2 className="text-5xl md:text-6xl font-extrabold mb-6">{t.contactTitle}</h2>
+        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-6">{t.contactTitle}</h2>
         <p className="text-lg md:text-xl mb-4 text-center max-w-prose">{t.contactText}</p>
         <a href="mailto:contact@gmail.com" className="hover:underline">
           contact@gmail.com
@@ -154,7 +148,7 @@ function App() {
       
       {/* Share */}
       <section id="share" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
-          <h2 className="text-5xl md:text-6xl font-extrabold mb-6">{t.shareTitle}</h2>
+          <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-6">{t.shareTitle}</h2>
           <p className="text-lg md:text-2xl max-w-prose text-center leading-relaxed mb-8">{t.shareText}</p>
         <div className="flex flex-wrap justify-center gap-4 text-xl">
           {[
