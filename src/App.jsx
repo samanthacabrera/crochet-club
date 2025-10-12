@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { FaFacebookF, FaPinterest, FaInstagram } from "react-icons/fa";
+import { FiLink } from "react-icons/fi";
 
 function App() {
   const links = ["Welcome", "About", "Calendar", "Contact"];
@@ -74,11 +76,11 @@ function App() {
         )}
       </nav>
 
-      <main className="h-screen w-screen overflow-y-scroll scroll-snap-y scroll-snap-mandatory">
+      <main className="h-screen w-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
       {/* Welcome */}
       <section
         id="welcome"
-        className="h-screen w-screen flex flex-col justify-center items-center scroll-snap-start bg-pink-50 px-6"
+        className="h-screen w-screen flex flex-col justify-center items-center snap-start bg-pink-100 px-6"
       >
         <h2 className="text-5xl md:text-6xl font-bold text-pink-500 uppercase mb-6">Welcome!</h2>
         <p className="text-lg md:text-2xl text-pink-500 max-w-prose text-center leading-relaxed">
@@ -89,7 +91,7 @@ function App() {
       {/* About */}
       <section
         id="about"
-        className="h-screen w-screen flex flex-col justify-center items-center scroll-snap-start text-pink-500 bg-yellow-50 px-6"
+        className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6"
       >
         <h2 className="text-5xl md:text-6xl font-extrabold  mb-6">About</h2>
         <ul className="text-lg md:text-xl max-w-prose leading-relaxed space-y-2">
@@ -102,7 +104,7 @@ function App() {
       {/* Calendar */}
       <section
         id="calendar"
-        className="h-screen w-screen flex flex-col justify-center items-center scroll-snap-start bg-pink-100 px-6"
+        className="h-screen w-screen flex flex-col justify-center items-center snap-start bg-pink-100 px-6"
       >
         <h2 className="text-5xl md:text-6xl font-extrabold text-pink-500 mb-6">Calendar</h2>
         <p className="text-lg md:text-xl text-pink-500 mb-4">
@@ -129,15 +131,50 @@ function App() {
       {/* Contact */}
       <section
         id="contact"
-        className="h-screen w-screen flex flex-col justify-center items-center scroll-snap-start text-pink-500 bg-yellow-50 px-6"
+        className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6"
       >
         <h2 className="text-5xl md:text-6xl font-extrabold mb-6">Contact</h2>
-        <p className="text-lg md:text-xl mb-4 text-center">
+        <p className="text-lg md:text-xl mb-4 text-center max-w-prose">
           If you have any questions or are interested in hosting an event at your venue, we’d love to hear from you!
         </p>
         <a href="mailto:contact@gmail.com" className="hover:underline">
           contact@gmail.com
         </a>
+      </section>
+      
+      {/* Share */}
+      <section id="share" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
+        <h2 className="text-5xl md:text-6xl font-extrabold mb-6">
+          Spread the Word
+        </h2>
+        <p className="text-lg md:text-2xl max-w-prose text-center leading-relaxed mb-8">
+          Love <strong>Knotty & Nice</strong>? Help our creative community grow by sharing this page with your friends!
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-4 text-xl">
+          {[
+            { icon: <FaInstagram />, href: "" },
+            { icon: <FaFacebookF />, href: "" },
+            { icon: <FaPinterest />, href: "" },
+          ].map((btn, i) => (
+            <a
+              key={i}
+              href={btn.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative px-3 py-1 rounded-lg uppercase font-bold text-white bg-pink-500 hover:bg-white hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center"
+            >
+              {btn.icon}
+            </a>
+          ))}
+
+          <button
+            onClick={() => { navigator.clipboard.writeText(window.location.href); alert("Link copied to clipboard!"); }}
+            className="relative px-3 py-1 rounded-lg uppercase font-bold text-white bg-pink-500 hover:bg-white hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center"
+          >
+            <FiLink />
+          </button>
+        </div>
       </section>
     </main>
     </>
