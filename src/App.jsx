@@ -9,9 +9,10 @@ function App() {
   const t = translations[lang];
   const navLinks = [
     { id: "welcome", label: t.navLinks[0] },
-    { id: "info", label: t.navLinks[1] },
-    { id: "calendar", label: t.navLinks[2] },
-    { id: "contact", label: t.navLinks[3] },
+    { id: "mission", label: t.navLinks[1] },
+    { id: "info", label: t.navLinks[2] },
+    { id: "calendar", label: t.navLinks[3] },
+
   ];
 
   // Calendar 
@@ -107,9 +108,19 @@ function App() {
         <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.welcomeTitle}</h2>
         <p className="text-md md:text-lg max-w-prose text-center leading-relaxed">{t.welcomeText}</p>
       </section>
+      
+      {/* Mission */}
+      <section id="mission" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6">
+        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.missionTitle}</h2>
+        <div className="space-y-6 max-w-prose text-center text-md md:text-lg">
+          {t.missionText.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
+      </section>
 
       {/* Info */}
-      <section id="info" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6">
+      <section id="info" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
         <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.infoTitle}</h2>
         <ul className="text-md md:text-lg text-left max-w-prose space-y-6">
           {t.infoList.map((item, i) => (
@@ -119,12 +130,12 @@ function App() {
       </section>
 
       {/* Calendar */}
-      <section id="calendar" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
-        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.calendarTitle}</h2>
-        <p className="text-md md:text-lg mb-4">{t.calendarText}</p>
-        <div className="flex flex-col space-y-4 border-dashed border-4 border-pink-200 bg-pink-50 rounded-2xl mt-8 p-6">
-          <h3 className="text-3xl uppercase font-bold text-pink-500">{t.nextMeeting}</h3>
-          <div className="font-bold">
+      <section id="calendar" className="h-screen w-screen flex flex-col justify-center items-center space-y-6 snap-start text-pink-500 bg-yellow-100 px-6">
+        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-6">{t.calendarTitle}</h2>
+        <p className="text-md md:text-lg">{t.calendarText}</p>
+        <div className="flex flex-col space-y-4 border-dashed border-4 border-pink-300 bg-pink-100 rounded-2xl py-12 px-24 font-semibold">
+          <h3 className="text-2xl uppercase text-pink-500">{t.nextMeeting}</h3>
+          <div className="space-y-4 pb-4">
             <p>{t.dateLabel}: {formattedDate}</p>
             <p>{t.timeLabel}: {meetingTime}</p>
             <p>{t.locationLabel}: {meetingLocation}</p>
@@ -133,16 +144,17 @@ function App() {
             href="https://www.meetup.com/knotty&nice/"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-2 w-fit text-sm font-bold rounded-lg bg-white text-pink-500 hover:text-white hover:bg-pink-500 transition-all duration-300 transform"
+            className="px-4 py-2 w-fit text-xl font-bold rounded-lg border border-pink-500 bg-pink-500 text-white hover:text-pink-500 hover:bg-white transition-all duration-300 transform"
           >
             {t.meetupLink}
           </a>
         </div>
+        <p className="text-md md:text-lg">{t.calendarReminder}</p>
       </section>
       
       {/* Contact */}
       <section
-        id="contact" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6"
+        id="contact" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6"
       >
         <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.contactTitle}</h2>
         <p className="text-md md:text-lg mb-4 text-center max-w-prose">{t.contactText}</p>
@@ -152,7 +164,7 @@ function App() {
       </section>
       
       {/* Share */}
-      <section id="share" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
+      <section id="share" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6">
           <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.shareTitle}</h2>
           <p className="text-md md:text-lg max-w-prose text-center leading-relaxed mb-8">{t.shareText}</p>
         <div className="flex flex-wrap justify-center gap-4 text-xl">
