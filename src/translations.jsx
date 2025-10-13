@@ -7,7 +7,7 @@ export const translations = {
     missionTitle: "Our Mission",
     missionText: [
       "Our mission is simple. We want to make crafting social and fun, encourage creativity, and build lasting friendships along the way.",
-      "Knotty & Nice started when I moved to this country without knowing anyone and wanted a simple way to meet people while doing something creative.",
+      "Knotty & Nice started when I moved to the Netherlands without knowing anyone and wanted a way to meet people while doing something creative.",
       "What began as a small idea grew into a space for young girls and women to come together and explore their creativity in a welcoming environment."
     ],
     infoTitle: "Info",
@@ -26,8 +26,19 @@ export const translations = {
     timeLabel: "Time",
     locationLabel: "Location",
     meetupLink: "RSVP on Meetup",
-    contactTitle: "Contact",
-    contactText: "If you have any questions or are interested in hosting an event at your venue, we’d love to hear from you!",
+    projectsTitle: "Projects",
+    projectsText: [
+      {
+        title: "Scrap Yarn Collection",
+        description: "Have leftover yarn lying around? Bring it to our meetups! We collect all types and colors of scrap yarn and turn them into items for people in need.",
+        status: "ongoing"
+      },
+      {
+        title: "Granny Square Blanket",
+        description: "Bring a 5x5 inch granny square to our meetups and join us in creating a vibrant patchwork blanket. Once it’s finished, the blanket will be raffled off to a lucky winner.",
+        status: "ongoing"
+      }
+    ],
     shareTitle: "Spread the Word",
     shareText: "Love Knotty & Nice? Help our creative community grow by sharing this page with your friends!"
   },
@@ -39,7 +50,7 @@ export const translations = {
     missionTitle: "Onze Missie",
     missionText: [
       "Onze missie is eenvoudig. We willen knutselen sociaal en leuk maken, creativiteit aanmoedigen en blijvende vriendschappen opbouwen.",
-      "Knotty & Nice begon toen ik naar dit land verhuisde zonder iemand te kennen en een makkelijke manier wilde vinden om mensen te ontmoeten terwijl ik iets creatiefs deed.",
+      "Knotty & Nice begon toen ik naar Nederland verhuisde zonder iemand te kennen en een manier wilde vinden om mensen te ontmoeten terwijl ik iets creatiefs deed.",
       "Wat begon als een klein idee groeide uit tot een plek waar jonge meisjes en vrouwen samen kunnen komen en hun creativiteit in een gastvrije omgeving kunnen ontdekken."
     ],
     infoTitle: "Info",
@@ -58,8 +69,19 @@ export const translations = {
     timeLabel: "Tijd",
     locationLabel: "Locatie",
     meetupLink: "Meld je aan op Meetup",
-    contactTitle: "Contact",
-    contactText: "Heb je vragen of wil je een evenement hosten? We horen graag van je!",
+    projectsTitle: "Projecten",
+    projectsText: [
+      {
+        title: "Restgaren Verzameling",
+        description: "Heb je nog restjes garen liggen? Neem ze mee naar onze meetups! We verzamelen alle soorten en kleuren garen en maken er items van voor mensen die het nodig hebben.",
+        status: "lopend"
+      },
+      {
+        title: "Granny Square Deken",
+        description: "Breng een granny square van 5x5 inch mee naar onze meetups en help ons een levendige patchworkdeken te maken. Zodra de deken klaar is, wordt deze verloot onder een gelukkige winnaar.",
+        status: "lopend"
+      }
+    ],
     shareTitle: "Deel het Nieuws",
     shareText: "Hou je van Knotty & Nice? Help onze creatieve gemeenschap groeien door deze pagina met je vrienden te delen!"
   }

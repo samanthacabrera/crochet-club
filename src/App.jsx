@@ -133,7 +133,7 @@ function App() {
       <section id="calendar" className="h-screen w-screen flex flex-col justify-center items-center space-y-6 snap-start text-pink-500 bg-yellow-100 px-6">
         <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-6">{t.calendarTitle}</h2>
         <p className="text-md md:text-lg">{t.calendarText}</p>
-        <div className="flex flex-col space-y-4 border-dashed border-4 border-pink-300 bg-pink-100 rounded-2xl py-12 px-24 font-semibold">
+        <div className="flex flex-col space-y-4 border-dashed border-4 border-pink-300 bg-pink-100 rounded-2xl p-12 font-semibold">
           <h3 className="text-2xl uppercase text-pink-500">{t.nextMeeting}</h3>
           <div className="space-y-4 pb-4">
             <p>{t.dateLabel}: {formattedDate}</p>
@@ -152,15 +152,26 @@ function App() {
         <p className="text-md md:text-lg">{t.calendarReminder}</p>
       </section>
       
-      {/* Contact */}
-      <section
-        id="contact" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6"
-      >
-        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.contactTitle}</h2>
-        <p className="text-md md:text-lg mb-4 text-center max-w-prose">{t.contactText}</p>
-        <a href="mailto:contact@gmail.com" className="hover:underline">
-          contact@gmail.com
-        </a>
+      {/* Projects */}
+      <section id="projects" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
+        <h2 className="text-3xl md:text-5xl font-extrabold uppercase mb-12 tracking-wide">{t.projectsTitle}</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl w-full">
+          {t.projectsText.map((project, index) => (
+            <div
+              key={index}
+              className="flex flex-col rounded-lg border-4 border-pink-500 bg-white p-8 transform hover:scale-105 transition-transform duration-300"
+            >
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-2xl font-extrabold uppercase text-pink-500">{project.title}</h3>
+                 <span className="px-3 py-1 text-sm font-bold uppercase rounded-lg bg-yellow-200 text-pink-500">
+                    {project.status}
+                  </span>
+              </div>
+              <p className="text-md md:text-lg leading-relaxed">{project.description}</p>
+            </div>
+          ))}
+        </div>
       </section>
       
       {/* Share */}
