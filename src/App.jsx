@@ -17,16 +17,21 @@ function App() {
   // Calendar 
   const [menuOpen, setMenuOpen] = useState(false);
   const today = new Date();
-  const nextMonday = new Date(today);
-  nextMonday.setDate(today.getDate() + ((1 + 7 - today.getDay()) % 7 || 7));
-  const formattedDate = nextMonday.toLocaleDateString("en-US", {
-    weekday: "long",
+  const nextMeeting = new Date(today);
+
+  if (today.getDay() === 1 && today.getHours() < 18) {
+    nextMeeting.setDate(today.getDate());
+  } else {
+    const daysUntilNextMonday = (8 - today.getDay()) % 7 || 7;
+    nextMeeting.setDate(today.getDate() + daysUntilNextMonday);
+  }
+
+  const formattedDate = nextMeeting.toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
   });
   const meetingTime = "18:00 – 20:00";
   const meetingLocation = "Domplein 9, 3512 JE Utrecht";
-  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(meetingLocation)}`;
 
   return (
     <>
@@ -99,14 +104,14 @@ function App() {
       <main className="h-screen w-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
       {/* Welcome */}
       <section id="welcome" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
-        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-6">{t.welcomeTitle}</h2>
-        <p className="text-lg md:text-2xl max-w-prose text-center leading-relaxed">{t.welcomeText}</p>
+        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.welcomeTitle}</h2>
+        <p className="text-md md:text-lg max-w-prose text-center leading-relaxed">{t.welcomeText}</p>
       </section>
 
       {/* Info */}
       <section id="info" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6">
-        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-6">{t.infoTitle}</h2>
-        <ul className="text-lg md:text-xl max-w-prose leading-relaxed space-y-2">
+        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.infoTitle}</h2>
+        <ul className="text-md md:text-lg text-left max-w-prose space-y-6">
           {t.infoList.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
@@ -115,8 +120,8 @@ function App() {
 
       {/* Calendar */}
       <section id="calendar" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
-        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-6">{t.calendarTitle}</h2>
-        <p className="text-lg md:text-xl mb-4">{t.calendarText}</p>
+        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.calendarTitle}</h2>
+        <p className="text-md md:text-lg mb-4">{t.calendarText}</p>
         <div className="flex flex-col space-y-4 border-dashed border-4 border-pink-200 bg-pink-50 rounded-2xl mt-8 p-6">
           <h3 className="text-3xl uppercase font-bold text-pink-500">{t.nextMeeting}</h3>
           <div className="font-bold">
@@ -125,22 +130,22 @@ function App() {
             <p>{t.locationLabel}: {meetingLocation}</p>
           </div>
           <a
-            href={googleMapsUrl}
+            href="https://www.meetup.com/knotty&nice/"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-2 w-fit text-sm font-bold rounded-lg bg-white text-pink-500 hover:text-white hover:bg-pink-500 transition-all duration-300 transform"
           >
-            {t.directions}
+            {t.meetupLink}
           </a>
         </div>
       </section>
-
+      
       {/* Contact */}
       <section
         id="contact" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6"
       >
-        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-6">{t.contactTitle}</h2>
-        <p className="text-lg md:text-xl mb-4 text-center max-w-prose">{t.contactText}</p>
+        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.contactTitle}</h2>
+        <p className="text-md md:text-lg mb-4 text-center max-w-prose">{t.contactText}</p>
         <a href="mailto:contact@gmail.com" className="hover:underline">
           contact@gmail.com
         </a>
@@ -148,8 +153,8 @@ function App() {
       
       {/* Share */}
       <section id="share" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
-          <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-6">{t.shareTitle}</h2>
-          <p className="text-lg md:text-2xl max-w-prose text-center leading-relaxed mb-8">{t.shareText}</p>
+          <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.shareTitle}</h2>
+          <p className="text-md md:text-lg max-w-prose text-center leading-relaxed mb-8">{t.shareText}</p>
         <div className="flex flex-wrap justify-center gap-4 text-xl">
           {[
             { icon: <FaInstagram />, href: "" },
