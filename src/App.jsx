@@ -102,13 +102,50 @@ function App() {
       </nav>
 
 
-      <main className="h-screen w-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
+    <main className="h-screen w-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
       {/* Welcome */}
-      <section id="welcome" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
-        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.welcomeTitle}</h2>
-        <p className="text-md md:text-lg max-w-prose text-center leading-relaxed">{t.welcomeText}</p>
+      <section
+        id="welcome"
+        className="h-screen w-screen flex flex-col justify-center items-center snap-start bg-pink-100 px-6 md:px-[10vw] text-pink-500"
+      >
+        <div className="w-full max-w-6xl flex flex-col md:flex-row md:justify-between md:items-start space-y-6 md:space-y-0">
+         <div className="w-full md:w-1/2 h-fit flex flex-col justify-center items-center md:items-start relative p-6 md:p-12">
+            <h1 className="text-4xl md:text-9xl font-bold uppercase text-pink-500 text-center md:text-left">
+              Knotty & Nice
+            </h1>
+
+            <h2 className="text-md md:text-2xl uppercase font-bold text-yellow-200 bg-pink-500 rounded-lg p-2 mt-4 text-center md:text-left">
+              A Social Crafting Club
+            </h2>
+          </div>
+
+          <div className="md:w-1/2 flex flex-col md:items-end items-center self-end space-y-6 md:space-y-8 text-center md:text-right">
+            <p className="text-md md:text-lg">
+              Meetups in Utrecht
+            </p>
+            <p className="text-md md:text-lg">
+              Every Monday <br /> 18:00 – 20:00
+            </p>
+            <p className="text-md md:text-lg leading-relaxed max-w-md">
+              Whether you’re into crocheting, knitting, embroidery, or any other craft, this is your place to create and connect with others who share your passion.
+            </p>
+            <div className="flex flex-col md:flex-row items-center md:space-x-4 mt-8">
+              <span className="text-lg md:text-2xl font-extrabold uppercase">
+                Join The Club
+              </span>
+              <a
+                href="https://www.facebook.com/share/g/1YXW3mV722/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-16 h-16 md:w-16 md:h-16 rounded-full bg-pink-500 text-white text-xl md:text-2xl hover:bg-yellow-200 hover:text-pink-500 transition-all duration-300 mt-4 md:mt-0"
+              >
+                🡥
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
-      
+
       {/* Mission */}
       <section id="mission" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6">
         <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.missionTitle}</h2>
@@ -141,12 +178,12 @@ function App() {
             <p>{t.locationLabel}: {meetingLocation}</p>
           </div>
           <a
-            href="https://www.meetup.com/knotty&nice/"
+            href="https://www.facebook.com/share/g/14UD75KFtKG/"
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2 w-fit text-xl font-bold rounded-lg border border-pink-500 bg-pink-500 text-white hover:text-pink-500 hover:bg-white transition-all duration-300 transform"
           >
-            {t.meetupLink}
+            {t.fbLink}
           </a>
         </div>
         <p className="text-md md:text-lg">{t.calendarReminder}</p>

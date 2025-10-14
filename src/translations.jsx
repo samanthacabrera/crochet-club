@@ -12,7 +12,7 @@ export const translations = {
     ],
     infoTitle: "Info",
     infoList: [
-      "Do I need to RSVP on Meetup? Yes! Please RSVP on our Meetup page so we know how many tables to reserve at the venue.",
+      "Do I need to RSVP on Facebook? Yes! Please RSVP on our Facebook page so we know how many tables to reserve at the venue.",
       "I’m a beginner— can I still join? Of course! All skill levels are welcomed.",
       "What should I bring? Bring your whatever craft you’re currently working on.",
       "Do I have to stay for the whole time? Not at all. You can drop in anytime between 18:00 and 20:00.",
@@ -20,12 +20,12 @@ export const translations = {
     ],
     calendarTitle: "Calendar",
     calendarText: "We meet every Monday from 18:00 - 20:00!",
-    calendarReminder: "Reminder: You must RSVP on Meetup to attend event!",
+    calendarReminder: "Reminder: You must RSVP on Facebook to attend event!",
     nextMeeting: "Next Meeting",
     dateLabel: "Date",
     timeLabel: "Time",
     locationLabel: "Location",
-    meetupLink: "RSVP on Meetup",
+    fbLink: "RSVP on Facebook",
     projectsTitle: "Projects",
     projectsText: [
       {
@@ -55,7 +55,7 @@ export const translations = {
     ],
     infoTitle: "Info",
     infoList: [
-      "Moet ik me aanmelden via Meetup? Ja! Meld je aan op onze Meetup-pagina zodat we weten hoeveel tafels we bij de locatie moeten reserveren.",
+      "Moet ik me aanmelden via Facebook? Ja! Meld je aan op onze Facebook-pagina zodat we weten hoeveel tafels we bij de locatie moeten reserveren.",
       "Ik ben een beginner— mag ik ook meedoen? Natuurlijk! Alle niveaus zijn welkom.",
       "Wat moet ik meenemen? Neem gewoon het handwerkproject mee waar je op dit moment mee bezig bent.",
       "Moet ik de hele tijd blijven? Nee hoor. Je kunt op elk moment binnenlopen tussen 18:00 en 20:00.",
@@ -63,12 +63,12 @@ export const translations = {
     ],
     calendarTitle: "Agenda",
     calendarText: "We komen elke maandag samen van 18:00 - 20:00!",
-    calendarReminder: "Herinnering: Je moet je aanmelden via Meetup om het evenement bij te wonen!",
+    calendarReminder: "Herinnering: Je moet je aanmelden via Facebook om het evenement bij te wonen!",
     nextMeeting: "Volgende bijeenkomst",
     dateLabel: "Datum",
     timeLabel: "Tijd",
     locationLabel: "Locatie",
-    meetupLink: "Meld je aan op Meetup",
+    fbLink: "Meld je aan op Facebook",
     projectsTitle: "Projecten",
     projectsText: [
       {
