@@ -111,27 +111,27 @@ function App() {
         <div className="w-full max-w-6xl flex flex-col md:flex-row md:justify-between md:items-start space-y-6 md:space-y-0">
          <div className="w-full md:w-1/2 h-fit flex flex-col justify-center items-center md:items-start relative p-6 md:p-12">
             <h1 className="text-4xl md:text-9xl font-bold uppercase text-pink-500 text-center md:text-left">
-              Knotty & Nice
+              {t.title}
             </h1>
 
             <h2 className="text-md md:text-2xl uppercase font-bold text-yellow-200 bg-pink-500 rounded-lg p-2 mt-4 text-center md:text-left">
-              A Social Crafting Club
+              {t.tagline}
             </h2>
           </div>
 
-          <div className="md:w-1/2 flex flex-col md:items-end items-center self-end space-y-6 md:space-y-8 text-center md:text-right">
+          <div className="md:w-1/2 flex flex-col md:items-end items-center self-center space-y-6 md:space-y-8 text-center md:text-right w-full">
             <p className="text-md md:text-lg">
-              Meetups in Utrecht
+              {t.welcomeLocation}
             </p>
             <p className="text-md md:text-lg">
-              Every Monday <br /> 18:00 – 20:00
+              {t.welcomeTime}
             </p>
             <p className="text-md md:text-lg leading-relaxed max-w-md">
-              Whether you’re into crocheting, knitting, embroidery, or any other craft, this is your place to create and connect with others who share your passion.
+              {t.welcomeText}
             </p>
             <div className="flex flex-col md:flex-row items-center md:space-x-4 mt-8">
               <span className="text-lg md:text-2xl font-extrabold uppercase">
-                Join The Club
+                {t.cta}
               </span>
               <a
                 href="https://www.facebook.com/share/g/1YXW3mV722/"
