@@ -4,6 +4,7 @@ import { FaFacebookF, FaPinterest, FaInstagram } from "react-icons/fa";
 import { FiLink } from "react-icons/fi";
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
   // Translator 
   const [lang, setLang] = useState("en"); 
   const t = translations[lang];
@@ -16,7 +17,6 @@ function App() {
   ];
 
   // Calendar 
-  const [menuOpen, setMenuOpen] = useState(false);
   const today = new Date();
   const nextMeeting = new Date(today);
 
@@ -30,6 +30,18 @@ function App() {
   const formattedDate = nextMeeting.toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
+  });
+
+  const year = today.getFullYear();
+  const month = today.getMonth();
+  const firstDayOfMonth = new Date(year, month, 1);
+  const lastDayOfMonth = new Date(year, month + 1, 0);
+  const daysInMonth = lastDayOfMonth.getDate();
+  const startDay = (firstDayOfMonth.getDay() + 6) % 7; 
+
+  const daysArray = Array.from({ length: startDay + daysInMonth }).map((_, i) => {
+    const day = i - startDay + 1;
+    return day > 0 ? day : null;
   });
   const meetingTime = "18:00 – 20:00";
   const meetingLocation = "Domplein 9, 3512 JE Utrecht";
@@ -167,28 +179,84 @@ function App() {
       </section>
 
       {/* Calendar */}
-      <section id="calendar" className="h-screen w-screen flex flex-col justify-center items-center space-y-6 snap-start text-pink-500 bg-yellow-100 px-6">
-        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-6">{t.calendarTitle}</h2>
-        <p className="text-md md:text-lg">{t.calendarText}</p>
-        <div className="flex flex-col space-y-4 border-dashed border-4 border-pink-300 bg-pink-100 rounded-2xl p-12 font-semibold">
-          <h3 className="text-2xl uppercase text-pink-500">{t.nextMeeting}</h3>
-          <div className="space-y-4 pb-4">
-            <p>{t.dateLabel}: {formattedDate}</p>
-            <p>{t.timeLabel}: {meetingTime}</p>
-            <p>{t.locationLabel}: {meetingLocation}</p>
+      <section
+        id="calendar"
+        className="min-h-screen w-full flex flex-col justify-center items-center snap-start bg-yellow-100 text-pink-600 px-6 md:px-20 py-16"
+      >
+        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">
+          {t.calendarTitle}
+        </h2>
+        <div className="w-full max-w-6xl grid md:grid-cols-[2fr_1fr] gap-12 items-start">
+          <div className="w-full">
+            <h3 className="text-2xl md:text-4xl font-extrabold uppercase m-6">
+              {today.toLocaleString(lang === "en" ? "en-US" : "nl-NL", {
+                month: "long",
+                year: "numeric",
+              })}
+            </h3>
+
+            <div className="grid grid-cols-7 gap-4 text-center font-bold text-lg md:text-xl tracking-wide">
+              {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
+                <div key={day} className="uppercase">
+                  {day}
+                </div>
+              ))}
+              {daysArray.map((day, i) => {
+                const isMeetingDay =
+                  day === nextMeeting.getDate() &&
+                  month === nextMeeting.getMonth() &&
+                  year === nextMeeting.getFullYear();
+
+                return (
+                  <div
+                    key={i}
+                    className={`aspect-square flex items-center justify-center text-xl font-extrabold ${
+                      day
+                        ? isMeetingDay
+                          ? "bg-pink-600 text-white rounded-full"
+                          : "text-pink-600"
+                        : ""
+                    }`}
+                  >
+                    {day || ""}
+                  </div>
+                );
+              })}
+            </div>
           </div>
-          <a
-            href="https://www.facebook.com/share/g/14UD75KFtKG/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 w-fit text-xl font-bold rounded-lg border border-pink-500 bg-pink-500 text-white hover:text-pink-500 hover:bg-white transition-all duration-300 transform"
-          >
-            {t.fbLink}
-          </a>
+
+          <div className="flex flex-col justify-center text-left space-y-6 h-full">
+            <div>
+              <div className="space-y-4 text-lg md:text-xl leading-relaxed text-pink-700">
+                <p>
+                  <span className="font-bold">{t.dateLabel}:</span> {formattedDate}
+                </p>
+                <p>
+                  <span className="font-bold">{t.timeLabel}:</span> {meetingTime}
+                </p>
+                <p>
+                  <span className="font-bold">{t.locationLabel}:</span>{" "}
+                  {meetingLocation}
+                </p>
+              </div>
+            </div>
+
+            <a
+              href="https://www.facebook.com/groups/1750537472289096"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-pink-500 text-white text-md md:text-lg hover:bg-yellow-200 hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1"
+            >
+            <span>RSVP</span>🡥
+            </a>
+            
+            <p className="text-left text-sm">
+              {t.calendarReminder}
+            </p>
+          </div>
         </div>
-        <p className="text-md md:text-lg">{t.calendarReminder}</p>
       </section>
-      
+
       {/* Projects */}
       <section id="projects" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
         <h2 className="text-3xl md:text-5xl font-extrabold uppercase mb-12 tracking-wide">{t.projectsTitle}</h2>
