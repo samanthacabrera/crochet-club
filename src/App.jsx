@@ -44,7 +44,6 @@ function App() {
     return day > 0 ? day : null;
   });
   const meetingTime = "18:00 – 20:00";
-  const meetingLocation = "Domplein 9, 3512 JE Utrecht";
 
   return (
     <>
@@ -53,7 +52,7 @@ function App() {
           
           <div className="flex flex-col items-start">
             <a
-              href="/"
+              href="https://samanthacabrera.github.io/crochet-club/"
               className="text-4xl md:text-5xl font-extrabold text-white uppercase"
             >
               Knotty & Nice
@@ -181,21 +180,54 @@ function App() {
       {/* Calendar */}
       <section
         id="calendar"
-        className="min-h-screen w-full flex flex-col justify-center items-center snap-start bg-yellow-100 text-pink-600 px-6 md:px-20 py-16"
+        className="min-h-screen w-full flex flex-col justify-center items-center snap-start bg-yellow-100 text-pink-500 px-6 md:px-20 py-16"
       >
         <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">
           {t.calendarTitle}
         </h2>
-        <div className="w-full max-w-6xl grid md:grid-cols-[2fr_1fr] gap-12 items-start">
-          <div className="w-full">
-            <h3 className="text-2xl md:text-4xl font-extrabold uppercase m-6">
+        <div className="w-full max-w-6xl grid md:grid-cols-2 gap-x-64">
+          {/* Next Meeting Info*/}
+          <div className="relative flex flex-col justify-between items-center bg-pink-50 border-4 border-pink-300 rounded-3xl shadow-lg w-[260px] md:w-[300px] h-[380px] md:h-[420px] px-6 py-10 mx-auto transform rotate-[-1deg] hover:rotate-0 transition-transform duration-300">
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-32 h-12 bg-yellow-200 rotate-2 shadow-md rounded-sm opacity-80 z-10"></div>
+            <div className="absolute inset-0 rounded-2xl border-2 border-dashed border-pink-400 pointer-events-none"></div>
+
+            <div className="flex flex-col items-center text-center space-y-4 text-pink-500 mt-4">
+              <h3 className="text-2xl font-extrabold uppercase tracking-wide">
+                {t.nextMeeting}
+              </h3>
+
+              <div className="space-y-3 text-lg md:text-xl leading-relaxed font-medium">
+                <p>
+                  <span className="font-bold">{t.dateLabel}:</span> {formattedDate}
+                </p>
+                <p>
+                  <span className="font-bold">{t.timeLabel}:</span> {meetingTime}
+                </p>
+                <p>
+                  <span className="font-bold">{t.locationLabel}:</span> {t.calendarLocation}
+                </p>
+              </div>
+            </div>
+            <a
+              href="https://www.facebook.com/groups/1750537472289096"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-full bg-pink-500 text-white text-sm md:text-lg font-extrabold hover:bg-yellow-200 hover:text-pink-600 transition-all duration-300 transform hover:-translate-y-1 shadow-md mt-6"
+            >
+              RSVP 🡥
+            </a>
+          </div>
+
+          
+          <div className="w-full hidden md:block">
+            <h3 className="text-2xl md:text-4xl text-center uppercase m-6">
               {today.toLocaleString(lang === "en" ? "en-US" : "nl-NL", {
-                month: "long",
+                month: "short",
                 year: "numeric",
               })}
             </h3>
 
-            <div className="grid grid-cols-7 gap-4 text-center font-bold text-lg md:text-xl tracking-wide">
+            <div className="grid grid-cols-7 gap-4 text-center text-md md:text-lg">
               {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
                 <div key={day} className="uppercase">
                   {day}
@@ -223,36 +255,6 @@ function App() {
                 );
               })}
             </div>
-          </div>
-
-          <div className="flex flex-col justify-center text-left space-y-6 h-full">
-            <div>
-              <div className="space-y-4 text-lg md:text-xl leading-relaxed text-pink-700">
-                <p>
-                  <span className="font-bold">{t.dateLabel}:</span> {formattedDate}
-                </p>
-                <p>
-                  <span className="font-bold">{t.timeLabel}:</span> {meetingTime}
-                </p>
-                <p>
-                  <span className="font-bold">{t.locationLabel}:</span>{" "}
-                  {meetingLocation}
-                </p>
-              </div>
-            </div>
-
-            <a
-              href="https://www.facebook.com/groups/1750537472289096"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-pink-500 text-white text-md md:text-lg hover:bg-yellow-200 hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1"
-            >
-            <span>RSVP</span>🡥
-            </a>
-            
-            <p className="text-left text-sm">
-              {t.calendarReminder}
-            </p>
           </div>
         </div>
       </section>

@@ -2,7 +2,7 @@ export const translations = {
   en: {
     title: "Knotty & Nice",
     tagline: "A Social Crafting Club",
-    navLinks: ["Welcome", "Mission", "Info", "Next Meeting"],
+    navLinks: ["Welcome", "Mission", "Info", "Calendar"],
     welcomeLocation: "Meetups in Utrecht",
     welcomeTime: "Every Monday | 18:00 – 20:00",
     welcomeText: "Whether you’re into crocheting, knitting, embroidery, or any other craft, this is your place to create and connect with others who share your passion.",
@@ -21,8 +21,9 @@ export const translations = {
       "Do I have to stay for the whole time? Not at all. You can drop in anytime between 18:00 and 20:00.",
       "Is there a fee to join? Nope, just grab a drink at the venue to support our hosts."
     ],
-    calendarTitle: "Next Meeting",
-    calendarReminder: "Reminder: You must RSVP on Facebook to attend event!",
+    calendarTitle: "Calendar",
+    calendarLocation: "RSVP on Facebook to view the location",
+    nextMeeting: "Next Meetup",
     dateLabel: "Date",
     timeLabel: "Time",
     locationLabel: "Location",
@@ -46,7 +47,7 @@ export const translations = {
   nl: {
     title: "Knotty & Nice",
     tagline: "Een sociale knutselclub",
-    navLinks: ["Welkom", "Missie", "Info", "Volgende Meetup"],
+    navLinks: ["Welkom", "Missie", "Info", "Kalender"],
     welcomeLocation: "Meetup in Utrecht",
     welcomeTime: "Elke maandag | 18:00 – 20:00",
     welcomeText: "Of je nu van haken, breien, borduren of een andere hobby houdt, dit is jouw plek om te creëren en contact te maken met anderen die jouw passie delen.",
@@ -65,8 +66,9 @@ export const translations = {
       "Moet ik de hele tijd blijven? Nee hoor. Je kunt op elk moment binnenlopen tussen 18:00 en 20:00.",
       "Kost het iets om mee te doen? Nee, bestel gewoon een drankje bij de locatie om onze gastheer te steunen."
     ],
-    calendarTitle: "Volgende Meetup",
-    calendarReminder: "Herinnering: Je moet je aanmelden via Facebook om het evenement bij te wonen!",
+    calendarTitle: "Kalender",
+    calendarLocation: "RSVP op Facebook om de locatie te bekijken",
+    nextMeeting: "Volgende Meetup",
     dateLabel: "Datum",
     timeLabel: "Tijd",
     locationLabel: "Locatie",
