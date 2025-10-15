@@ -130,14 +130,14 @@ function App() {
             </h2>
           </div>
 
-          <div className="md:w-1/2 flex flex-col md:items-end items-center self-center space-y-6 md:space-y-8 text-center md:text-right w-full">
-            <p className="text-md md:text-lg">
+          <div className="md:w-1/2 max-w-sm flex flex-col md:items-end items-center self-center space-y-6 md:space-y-8 text-center md:text-right">
+            <p className="text-md md:text-xl">
               {t.welcomeLocation}
             </p>
-            <p className="text-md md:text-lg">
+            <p className="text-md md:text-xl">
               {t.welcomeTime}
             </p>
-            <p className="text-md md:text-lg leading-relaxed max-w-md">
+            <p className="text-md md:text-xl">
               {t.welcomeText}
             </p>
             <div className="flex flex-col md:flex-row items-center md:space-x-4 mt-8">
@@ -160,7 +160,7 @@ function App() {
       {/* Mission */}
       <section id="mission" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6">
         <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.missionTitle}</h2>
-        <div className="space-y-6 max-w-prose text-center text-md md:text-lg">
+        <div className="space-y-6 max-w-prose text-justify text-md md:text-lg">
           {t.missionText.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}

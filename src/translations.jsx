@@ -5,11 +5,12 @@ export const translations = {
     navLinks: ["Welcome", "Mission", "Info", "Calendar"],
     welcomeLocation: "Meetups in Utrecht",
     welcomeTime: "Every Monday | 18:00 – 20:00",
-    welcomeText: "Whether you’re into crocheting, knitting, embroidery, or any other craft, this is your place to create and connect with others who share your passion.",
+    welcomeText: "Connect with fellow crafters + unleash your creativity.",
     cta: "Join The Club",
     missionTitle: "Our Mission",
     missionText: [
       "Our mission is simple. We want to make crafting social and fun, encourage creativity, and build lasting friendships along the way.",
+      "Whether you’re into crocheting, knitting, embroidery, or any other craft, this is your place to create and connect with others who share your passion.",
       "Knotty & Nice started when I moved to the Netherlands without knowing anyone and wanted a way to meet people while doing something creative.",
       "What began as a small idea grew into a space for young girls and women to come together and explore their creativity in a welcoming environment."
     ],
@@ -50,11 +51,12 @@ export const translations = {
     navLinks: ["Welkom", "Missie", "Info", "Kalender"],
     welcomeLocation: "Meetup in Utrecht",
     welcomeTime: "Elke maandag | 18:00 – 20:00",
-    welcomeText: "Of je nu van haken, breien, borduren of een andere hobby houdt, dit is jouw plek om te creëren en contact te maken met anderen die jouw passie delen.",
+    welcomeText: "Verbind met andere creatievelingen + laat je creativiteit de vrije loop.",
     cta: "Word Lid Van De Club",
     missionTitle: "Onze Missie",
     missionText: [
       "Onze missie is eenvoudig. We willen knutselen sociaal en leuk maken, creativiteit aanmoedigen en blijvende vriendschappen opbouwen.",
+      "Of je nu van haken, breien, borduren of een andere hobby houdt, dit is jouw plek om te creëren en contact te maken met anderen die jouw passie delen.",
       "Knotty & Nice begon toen ik naar Nederland verhuisde zonder iemand te kennen en een manier wilde vinden om mensen te ontmoeten terwijl ik iets creatiefs deed.",
       "Wat begon als een klein idee groeide uit tot een plek waar jonge meisjes en vrouwen samen kunnen komen en hun creativiteit in een gastvrije omgeving kunnen ontdekken."
     ],
