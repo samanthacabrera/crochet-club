@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { translations } from "./translations";
-import { FaFacebookF, FaPinterest, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaWhatsapp } from "react-icons/fa";
 import { FiLink } from "react-icons/fi";
 
 function App() {
@@ -283,34 +283,39 @@ function App() {
       
       {/* Share */}
       <section id="share" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6">
-          <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.shareTitle}</h2>
-          <p className="text-md md:text-lg max-w-prose text-center leading-relaxed mb-8">{t.shareText}</p>
-        <div className="flex flex-wrap justify-center gap-4 text-xl">
-          {[
-            { icon: <FaInstagram />, href: "" },
-            { icon: <FaFacebookF />, href: "" },
-            { icon: <FaPinterest />, href: "" },
-          ].map((btn, i) => (
-            <a
-              key={i}
-              href={btn.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative px-6 py-2 rounded-lg text-white bg-pink-500 hover:bg-white hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center"
-            >
-              {btn.icon}
-            </a>
-          ))}
-
-          <button
-              onClick={() => { navigator.clipboard.writeText(window.location.href); alert("Link copied to clipboard!"); }}
-              className="relative px-6 py-2 rounded-lg text-white bg-pink-500 hover:bg-white hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center"
-          >
-            <FiLink />
-          </button>
-        </div>
-      </section>
-    </main>
+        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.shareTitle}</h2>
+        <p className="text-md md:text-lg max-w-prose text-center leading-relaxed mb-8">{t.shareText}</p>
+          <div className="flex flex-wrap justify-center gap-4 text-xl">
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative px-6 py-2 rounded-lg text-white bg-pink-500 hover:bg-white hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center"
+              >
+                <FaFacebookF />
+              </a>
+              <a
+                href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
+                  "Check out this crochet club: " + window.location.href
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative px-6 py-2 rounded-lg text-white bg-pink-500 hover:bg-white hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center"
+              >
+                <FaWhatsapp />
+              </a>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(window.location.href);
+                  alert("Link copied to clipboard!");
+                }}
+                className="relative px-6 py-2 rounded-lg text-white bg-pink-500 hover:bg-white hover:text-pink-500 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center"
+              >
+                <FiLink />
+              </button>
+            </div>
+        </section>
+      </main>
     </>
   )
 }
