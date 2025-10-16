@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { translations } from "./translations";
 import { FaFacebookF, FaWhatsapp } from "react-icons/fa";
-import { FiLink } from "react-icons/fi";
+import { FiLink, FiArrowUpRight } from "react-icons/fi";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -150,7 +150,7 @@ function App() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-16 h-16 md:w-16 md:h-16 rounded-full bg-pink-500 text-white text-xl md:text-2xl hover:bg-yellow-200 hover:text-pink-500 transition-all duration-300 mt-4 md:mt-0"
               >
-                🡥
+                <FiArrowUpRight className="w-6 h-6 md:w-8 md:h-8"/>
               </a>
             </div>
           </div>
@@ -214,7 +214,7 @@ function App() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-full bg-pink-500 text-white text-sm md:text-lg font-extrabold hover:bg-yellow-200 hover:text-pink-600 transition-all duration-300 transform hover:-translate-y-1 shadow-md mt-6"
             >
-              RSVP 🡥
+              RSVP <FiArrowUpRight className="w-4 h-4 md:w-6 md:h-6"/>
             </a>
           </div>
 
