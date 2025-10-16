@@ -130,28 +130,26 @@ function App() {
             </h2>
           </div>
 
-          <div className="md:w-1/2 max-w-sm flex flex-col md:items-end items-center self-center space-y-6 md:space-y-8 text-center md:text-right">
-            <p className="text-md md:text-xl">
-              {t.welcomeLocation}
-            </p>
-            <p className="text-md md:text-xl">
-              {t.welcomeTime}
-            </p>
-            <p className="text-md md:text-xl">
-              {t.welcomeText}
-            </p>
-            <div className="flex flex-col md:flex-row items-center md:space-x-4 mt-8">
-              <span className="text-lg md:text-2xl font-extrabold uppercase">
-                {t.cta}
-              </span>
-              <a
-                href="https://www.facebook.com/share/g/1YXW3mV722/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-16 h-16 md:w-16 md:h-16 rounded-full bg-pink-500 text-white text-xl md:text-2xl hover:bg-yellow-200 hover:text-pink-500 transition-all duration-300 mt-4 md:mt-0"
-              >
-                <FiArrowUpRight className="w-6 h-6 md:w-8 md:h-8"/>
-              </a>
+          <div className="relative flex flex-col justify-between items-center bg-pink-50 border-4 border-pink-300 rounded-3xl shadow-lg w-[260px] md:w-[300px] h-[380px] md:h-[420px] px-6 py-10 mx-auto transform -rotate-1 hover:rotate-0 transition-transform duration-300">
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-32 h-12 bg-yellow-200 rotate-2 shadow-md rounded-sm opacity-80 z-10"></div>
+            <div className="absolute inset-0 rounded-2xl border-2 border-dashed border-pink-400 pointer-events-none"></div>
+
+            <div className="flex flex-col items-center md:items-end text-center md:text-right space-y-6 pt-6">
+              <p className="text-md md:text-2xl">{t.welcomeLocation}</p>
+              <p className="text-md md:text-2xl">{t.welcomeDay}</p>
+              <p className="text-md md:text-2xl">{t.welcomeTime}</p>
+              <p className="text-md md:text-2xl">{t.welcomeText}</p>
+              <div className="flex flex-col md:flex-row items-center md:space-x-4 md:pt-4">
+                <span className="text-lg md:text-2xl font-extrabold uppercase">{t.cta}</span>
+                <a
+                  href="https://www.facebook.com/share/g/1YXW3mV722/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-16 h-16 md:w-16 md:h-16 rounded-full bg-pink-500 text-white text-xl md:text-2xl hover:bg-yellow-200 hover:text-pink-500 transition-all duration-300 mt-4 md:mt-0"
+                >
+                  <FiArrowUpRight className="w-6 h-6 md:w-8 md:h-8" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
