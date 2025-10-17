@@ -15,7 +15,7 @@ export const translations = {
       "Knotty & Nice started when I moved to the Netherlands without knowing anyone and wanted a way to meet people while doing something creative.",
       "What began as a small idea grew into a space for young girls and women to come together and explore their creativity in a welcoming environment."
     ],
-    infoTitle: "Info",
+    infoTitle: "Information",
     infoList: [
       "Do I need to RSVP on Facebook? Yes! Please RSVP on our Facebook page so we know how many tables to reserve at the venue.",
       "I’m a beginner— can I still join? Of course! All skill levels are welcomed.",
@@ -47,7 +47,7 @@ export const translations = {
     welcomeDay: "Elke maandag",
     welcomeTime: "18:00 – 20:00",
     welcomeText: "Verbind met andere creatievelingen + laat je creativiteit de vrije loop.",
-    cta: "Word Lid Van De Club",
+    cta: "Kom Bij De Club",
     missionTitle: "Onze Missie",
     missionText: [
       "Onze missie is eenvoudig. We willen knutselen sociaal en leuk maken, creativiteit aanmoedigen en blijvende vriendschappen opbouwen.",
@@ -55,7 +55,7 @@ export const translations = {
       "Knotty & Nice begon toen ik naar Nederland verhuisde zonder iemand te kennen en een manier wilde vinden om mensen te ontmoeten terwijl ik iets creatiefs deed.",
       "Wat begon als een klein idee groeide uit tot een plek waar jonge meisjes en vrouwen samen kunnen komen en hun creativiteit in een gastvrije omgeving kunnen ontdekken."
     ],
-    infoTitle: "Info",
+    infoTitle: "Informatie",
     infoList: [
       "Moet ik me aanmelden via Facebook? Ja! Meld je aan op onze Facebook-pagina zodat we weten hoeveel tafels we bij de locatie moeten reserveren.",
       "Ik ben een beginner— mag ik ook meedoen? Natuurlijk! Alle niveaus zijn welkom.",

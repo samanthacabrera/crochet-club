@@ -37,7 +37,6 @@ function App() {
     { id: "mission", label: t.navLinks[1] },
     { id: "info", label: t.navLinks[2] },
     { id: "projects", label: t.navLinks[3] },
-
   ];
 
   return (
@@ -118,7 +117,7 @@ function App() {
         id="welcome"
         className="h-screen w-screen flex flex-col justify-center items-center snap-start bg-pink-100 px-6 md:px-[10vw] text-pink-500"
       >
-        <div className="w-full max-w-6xl flex flex-col md:flex-row md:justify-between md:items-start space-y-6 md:space-y-0">
+        <div className="w-full max-w-6xl flex flex-col md:flex-row md:justify-between md:items-start md:space-x-0 space-y-6 md:space-y-0">
          <div className="w-full md:w-1/2 h-fit flex flex-col justify-center items-center md:items-start relative p-6 md:p-12">
             <h1 className="text-4xl md:text-9xl font-bold uppercase text-pink-500 text-center md:text-left">
               {t.title}
@@ -133,11 +132,11 @@ function App() {
             <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-32 h-12 bg-yellow-200 rotate-2 shadow-md rounded-sm opacity-80 z-10"></div>
             <div className="absolute inset-0 rounded-2xl border-2 border-dashed border-pink-400 pointer-events-none"></div>
 
-            <div className="flex flex-col items-center md:items-end text-center md:text-right space-y-6 pt-6">
+            <div className="flex flex-col items-center md:items-end text-center md:text-right space-y-6 pt-4">
               <p className="text-md md:text-2xl">{t.welcomeLocation}</p>
               <p className="text-md md:text-2xl">{t.welcomeDay}</p>
               <p className="text-md md:text-2xl">{t.welcomeTime}</p>
-              <p className="text-md md:text-2xl">{t.welcomeText}</p>
+              <p className="text-md md:text-xl">{t.welcomeText}</p>
               <div className="flex flex-col md:flex-row items-center md:space-x-4 md:pt-4">
                 <span className="text-lg md:text-2xl font-extrabold uppercase">{t.cta}</span>
                 <a
@@ -156,7 +155,13 @@ function App() {
 
       {/* Mission */}
       <section id="mission" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6">
-        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.missionTitle}</h2>
+        <h2 className="relative text-3xl md:text-5xl uppercase tracking-widest mb-12 text-pink-500">
+          {t.missionTitle}
+          <svg className="absolute -bottom-3 left-0 w-full h-2" viewBox="0 0 200 10" preserveAspectRatio="none">
+            <path d="M0 5 Q25 0 50 5 T100 5 T150 5 T200 5" stroke="#facc15" strokeWidth="3" fill="transparent" strokeDasharray="10 2" />
+          </svg>
+        </h2>
+        
         <div className="space-y-6 max-w-prose text-justify text-md md:text-lg">
           {t.missionText.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
@@ -166,7 +171,12 @@ function App() {
 
       {/* Info */}
       <section id="info" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
-        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.infoTitle}</h2>
+        <h2 className="relative text-3xl md:text-5xl uppercase tracking-widest mb-12 text-pink-500">
+          {t.infoTitle}
+          <svg className="absolute -bottom-3 left-0 w-full h-2" viewBox="0 0 200 10" preserveAspectRatio="none">
+            <path d="M0 5 Q25 0 50 5 T100 5 T150 5 T200 5" stroke="#facc15" strokeWidth="3" fill="transparent" strokeDasharray="10 2" />
+          </svg>
+        </h2>
         <ul className="text-md md:text-lg text-left max-w-prose space-y-6">
           {t.infoList.map((item, i) => (
             <li key={i}>{item}</li>
@@ -176,7 +186,12 @@ function App() {
 
       {/* Projects */}
       <section id="projects" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6">
-        <h2 className="text-3xl md:text-5xl font-extrabold uppercase mb-12 tracking-wide">{t.projectsTitle}</h2>
+        <h2 className="relative text-3xl md:text-5xl uppercase tracking-widest mb-12 text-pink-500">
+          {t.projectsTitle}
+          <svg className="absolute -bottom-3 left-0 w-full h-2" viewBox="0 0 200 10" preserveAspectRatio="none">
+            <path d="M0 5 Q25 0 50 5 T100 5 T150 5 T200 5" stroke="#facc15" strokeWidth="3" fill="transparent" strokeDasharray="10 2" />
+          </svg>
+        </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl w-full">
           {t.projectsText.map((project, index) => (
@@ -198,7 +213,12 @@ function App() {
       
       {/* Share */}
       <section id="share" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
-        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.shareTitle}</h2>
+        <h2 className="relative text-3xl md:text-5xl uppercase tracking-widest mb-12 text-pink-500">
+          {t.shareTitle}
+          <svg className="absolute -bottom-3 left-0 w-full h-2" viewBox="0 0 200 10" preserveAspectRatio="none">
+            <path d="M0 5 Q25 0 50 5 T100 5 T150 5 T200 5" stroke="#facc15" strokeWidth="3" fill="transparent" strokeDasharray="10 2" />
+          </svg>
+        </h2>
         <p className="text-md md:text-lg max-w-prose text-center leading-relaxed mb-8">{t.shareText}</p>
           <div className="flex flex-wrap justify-center gap-4 text-xl">
               <a
