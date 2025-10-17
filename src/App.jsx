@@ -12,38 +12,9 @@ function App() {
     { id: "welcome", label: t.navLinks[0] },
     { id: "mission", label: t.navLinks[1] },
     { id: "info", label: t.navLinks[2] },
-    { id: "calendar", label: t.navLinks[3] },
+    { id: "projects", label: t.navLinks[3] },
 
   ];
-
-  // Calendar 
-  const today = new Date();
-  const nextMeeting = new Date(today);
-
-  if (today.getDay() === 1 && today.getHours() < 18) {
-    nextMeeting.setDate(today.getDate());
-  } else {
-    const daysUntilNextMonday = (8 - today.getDay()) % 7 || 7;
-    nextMeeting.setDate(today.getDate() + daysUntilNextMonday);
-  }
-
-  const formattedDate = nextMeeting.toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-  });
-
-  const year = today.getFullYear();
-  const month = today.getMonth();
-  const firstDayOfMonth = new Date(year, month, 1);
-  const lastDayOfMonth = new Date(year, month + 1, 0);
-  const daysInMonth = lastDayOfMonth.getDate();
-  const startDay = (firstDayOfMonth.getDay() + 6) % 7; 
-
-  const daysArray = Array.from({ length: startDay + daysInMonth }).map((_, i) => {
-    const day = i - startDay + 1;
-    return day > 0 ? day : null;
-  });
-  const meetingTime = "18:00 – 20:00";
 
   return (
     <>
@@ -173,88 +144,6 @@ function App() {
             <li key={i}>{item}</li>
           ))}
         </ul>
-      </section>
-
-      {/* Calendar */}
-      <section
-        id="calendar"
-        className="min-h-screen w-full flex flex-col justify-center items-center snap-start bg-yellow-100 text-pink-500 px-6 md:px-20 py-16"
-      >
-        <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">
-          {t.calendarTitle}
-        </h2>
-        <div className="w-full max-w-6xl grid md:grid-cols-2 gap-x-64">
-          {/* Next Meeting Info*/}
-          <div className="relative flex flex-col justify-between items-center bg-pink-50 border-4 border-pink-300 rounded-3xl shadow-lg w-[260px] md:w-[300px] h-[380px] md:h-[420px] px-6 py-10 mx-auto transform rotate-[-1deg] hover:rotate-0 transition-transform duration-300">
-            <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-32 h-12 bg-yellow-200 rotate-2 shadow-md rounded-sm opacity-80 z-10"></div>
-            <div className="absolute inset-0 rounded-2xl border-2 border-dashed border-pink-400 pointer-events-none"></div>
-
-            <div className="flex flex-col items-center text-center space-y-4 text-pink-500 mt-4">
-              <h3 className="text-2xl font-extrabold uppercase tracking-wide">
-                {t.nextMeeting}
-              </h3>
-
-              <div className="space-y-3 text-lg md:text-xl leading-relaxed font-medium">
-                <p>
-                  <span className="font-bold">{t.dateLabel}:</span> {formattedDate}
-                </p>
-                <p>
-                  <span className="font-bold">{t.timeLabel}:</span> {meetingTime}
-                </p>
-                <p>
-                  <span className="font-bold">{t.locationLabel}:</span> {t.calendarLocation}
-                </p>
-              </div>
-            </div>
-            <a
-              href="https://www.facebook.com/groups/1750537472289096"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-full bg-pink-500 text-white text-sm md:text-lg font-extrabold hover:bg-yellow-200 hover:text-pink-600 transition-all duration-300 transform hover:-translate-y-1 shadow-md mt-6"
-            >
-              RSVP <FiArrowUpRight className="w-4 h-4 md:w-6 md:h-6"/>
-            </a>
-          </div>
-
-          
-          <div className="w-full hidden md:block">
-            <h3 className="text-2xl md:text-4xl text-center uppercase m-6">
-              {today.toLocaleString(lang === "en" ? "en-US" : "nl-NL", {
-                month: "short",
-                year: "numeric",
-              })}
-            </h3>
-
-            <div className="grid grid-cols-7 gap-4 text-center text-md md:text-lg">
-              {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
-                <div key={day} className="uppercase">
-                  {day}
-                </div>
-              ))}
-              {daysArray.map((day, i) => {
-                const isMeetingDay =
-                  day === nextMeeting.getDate() &&
-                  month === nextMeeting.getMonth() &&
-                  year === nextMeeting.getFullYear();
-
-                return (
-                  <div
-                    key={i}
-                    className={`aspect-square flex items-center justify-center text-xl font-extrabold ${
-                      day
-                        ? isMeetingDay
-                          ? "bg-pink-600 text-white rounded-full"
-                          : "text-pink-600"
-                        : ""
-                    }`}
-                  >
-                    {day || ""}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Projects */}

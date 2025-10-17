@@ -2,7 +2,7 @@ export const translations = {
   en: {
     title: "Knotty & Nice",
     tagline: "A Social Crafting Club",
-    navLinks: ["Welcome", "Mission", "Info", "Calendar"],
+    navLinks: ["Welcome", "Mission", "Info", "Projects"],
     welcomeLocation: "Meetups in Utrecht",
     welcomeDay: "Every Monday",
     welcomeTime: "18:00 – 20:00",
@@ -23,13 +23,6 @@ export const translations = {
       "Do I have to stay for the whole time? Not at all. You can drop in anytime between 18:00 and 20:00.",
       "Is there a fee to join? Nope, just grab a drink at the venue to support our hosts."
     ],
-    calendarTitle: "Calendar",
-    calendarLocation: "RSVP on Facebook to view the location",
-    nextMeeting: "Next Meetup",
-    dateLabel: "Date",
-    timeLabel: "Time",
-    locationLabel: "Location",
-    fbLink: "RSVP on Facebook",
     projectsTitle: "Projects",
     projectsText: [
       {
@@ -49,7 +42,7 @@ export const translations = {
   nl: {
     title: "Knotty & Nice",
     tagline: "Een sociale knutselclub",
-    navLinks: ["Welkom", "Missie", "Info", "Kalender"],
+    navLinks: ["Welkom", "Missie", "Info", "Projecten"],
     welcomeLocation: "Meetup in Utrecht",
     welcomeDay: "Elke maandag",
     welcomeTime: "18:00 – 20:00",
@@ -70,13 +63,6 @@ export const translations = {
       "Moet ik de hele tijd blijven? Nee hoor. Je kunt op elk moment binnenlopen tussen 18:00 en 20:00.",
       "Kost het iets om mee te doen? Nee, bestel gewoon een drankje bij de locatie om onze gastheer te steunen."
     ],
-    calendarTitle: "Kalender",
-    calendarLocation: "RSVP op Facebook om de locatie te bekijken",
-    nextMeeting: "Volgende Meetup",
-    dateLabel: "Datum",
-    timeLabel: "Tijd",
-    locationLabel: "Locatie",
-    fbLink: "Meld je aan op Facebook",
     projectsTitle: "Projecten",
     projectsText: [
       {
