@@ -1,11 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect, useRef} from "react";
 import { translations } from "./translations";
 import { FaFacebookF, FaWhatsapp } from "react-icons/fa";
 import { FiLink, FiArrowUpRight } from "react-icons/fi";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  // Translator 
+  const menuRef = useRef(null); 
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        setMenuOpen(false);
+      }
+    }
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen]);
+  
+  // Translator
   const [lang, setLang] = useState("en"); 
   const t = translations[lang];
   const navLinks = [
@@ -52,6 +76,7 @@ function App() {
           </div>
 
           <button
+            ref={buttonRef}
             className="md:hidden flex flex-col justify-center items-center space-y-1 w-8 h-8"
             onClick={() => setMenuOpen(!menuOpen)}
           >
@@ -62,7 +87,10 @@ function App() {
         </div>
 
         {menuOpen && (
-          <div className="md:hidden bg-pink-500 text-white flex flex-col space-y-2 px-6 py-4 uppercase font-bold">
+          <div
+            ref={menuRef}
+            className="md:hidden bg-pink-500 text-white flex flex-col space-y-2 px-6 py-4 uppercase font-bold"
+          >
             {navLinks.map((link) => (
               <a
                 key={link}
@@ -147,7 +175,7 @@ function App() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
+      <section id="projects" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6">
         <h2 className="text-3xl md:text-5xl font-extrabold uppercase mb-12 tracking-wide">{t.projectsTitle}</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl w-full">
@@ -169,7 +197,7 @@ function App() {
       </section>
       
       {/* Share */}
-      <section id="share" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6">
+      <section id="share" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
         <h2 className="text-2xl md:text-5xl font-extrabold uppercase mb-12">{t.shareTitle}</h2>
         <p className="text-md md:text-lg max-w-prose text-center leading-relaxed mb-8">{t.shareText}</p>
           <div className="flex flex-wrap justify-center gap-4 text-xl">
