@@ -28,6 +28,25 @@ function App() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [menuOpen]);
+
+
+  useEffect(() => {
+    const elements = document.querySelectorAll(".scroll-fade");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          } else {
+            entry.target.classList.remove("visible");
+          }
+        });
+      },
+      { threshold: 0.2 } 
+    );
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
   
   // Translator
   const [lang, setLang] = useState("en"); 
@@ -42,7 +61,7 @@ function App() {
   return (
     <>
       <nav className="sticky top-0 z-50 w-full bg-pink-500">
-        <div className="flex justify-between items-center w-full mx-auto px-8 py-4">
+        <div className="flex justify-between items-center w-full h-full mx-auto px-8 py-4">
           
           <div className="flex flex-col items-start">
             <a
@@ -119,16 +138,16 @@ function App() {
       >
         <div className="w-full max-w-6xl flex flex-col md:flex-row md:justify-between md:items-start md:space-x-0 space-y-6 md:space-y-0">
          <div className="w-full md:w-1/2 h-fit flex flex-col justify-center items-center md:items-start relative p-6 md:p-12">
-            <h1 className="text-4xl md:text-9xl font-bold uppercase text-pink-500 text-center md:text-left">
+            <h1 className="text-4xl md:text-9xl font-bold uppercase text-pink-500 text-center md:text-left scroll-fade">
               {t.title}
             </h1>
 
-            <h2 className="text-md md:text-2xl uppercase font-bold text-yellow-200 bg-pink-500 rounded-lg p-2 mt-4 text-center md:text-left">
+            <h2 className="text-md md:text-2xl uppercase font-bold text-yellow-200 bg-pink-500 rounded-lg p-2 mt-4 text-center md:text-left scroll-fade">
               {t.tagline}
             </h2>
           </div>
 
-          <div className="relative flex flex-col justify-between items-center bg-pink-50 border-4 border-pink-300 rounded-3xl shadow-lg w-[260px] md:w-[300px] h-[380px] md:h-[420px] px-6 py-10 mx-auto transform -rotate-1 hover:rotate-0 transition-transform duration-300">
+          <div className="relative flex flex-col justify-between items-center bg-pink-50 border-4 border-pink-300 rounded-3xl shadow-lg w-[260px] md:w-[300px] h-[380px] md:h-[420px] px-6 py-10 mx-auto scroll-fade">
             <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-32 h-12 bg-yellow-200 rotate-2 shadow-md rounded-sm opacity-80 z-10"></div>
             <div className="absolute inset-0 rounded-2xl border-2 border-dashed border-pink-400 pointer-events-none"></div>
 
@@ -155,14 +174,14 @@ function App() {
 
       {/* Mission */}
       <section id="mission" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6">
-        <h2 className="relative text-3xl md:text-5xl uppercase tracking-widest mb-12 text-pink-500">
+        <h2 className="relative text-3xl md:text-5xl uppercase tracking-widest mb-12 text-pink-500 scroll-fade">
           {t.missionTitle}
           <svg className="absolute -bottom-3 left-0 w-full h-2" viewBox="0 0 200 10" preserveAspectRatio="none">
             <path d="M0 5 Q25 0 50 5 T100 5 T150 5 T200 5" stroke="#facc15" strokeWidth="3" fill="transparent" strokeDasharray="10 2" />
           </svg>
         </h2>
         
-        <div className="space-y-6 max-w-prose text-justify text-md md:text-lg">
+        <div className="space-y-6 max-w-prose text-justify text-md md:text-lg scroll-fade">
           {t.missionText.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}
@@ -171,13 +190,13 @@ function App() {
 
       {/* Info */}
       <section id="info" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
-        <h2 className="relative text-3xl md:text-5xl uppercase tracking-widest mb-12 text-pink-500">
+        <h2 className="relative text-3xl md:text-5xl uppercase tracking-widest mb-12 text-pink-500 scroll-fade">
           {t.infoTitle}
           <svg className="absolute -bottom-3 left-0 w-full h-2" viewBox="0 0 200 10" preserveAspectRatio="none">
             <path d="M0 5 Q25 0 50 5 T100 5 T150 5 T200 5" stroke="#facc15" strokeWidth="3" fill="transparent" strokeDasharray="10 2" />
           </svg>
         </h2>
-        <ul className="text-md md:text-lg text-left max-w-prose space-y-6">
+        <ul className="text-md md:text-lg text-left max-w-prose space-y-6 scroll-fade">
           {t.infoList.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
@@ -186,7 +205,7 @@ function App() {
 
       {/* Projects */}
       <section id="projects" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-yellow-100 px-6">
-        <h2 className="relative text-3xl md:text-5xl uppercase tracking-widest mb-12 text-pink-500">
+        <h2 className="relative text-3xl md:text-5xl uppercase tracking-widest mb-12 text-pink-500 scroll-fade">
           {t.projectsTitle}
           <svg className="absolute -bottom-3 left-0 w-full h-2" viewBox="0 0 200 10" preserveAspectRatio="none">
             <path d="M0 5 Q25 0 50 5 T100 5 T150 5 T200 5" stroke="#facc15" strokeWidth="3" fill="transparent" strokeDasharray="10 2" />
@@ -197,7 +216,7 @@ function App() {
           {t.projectsText.map((project, index) => (
             <div
               key={index}
-              className="flex flex-col rounded-lg border-4 border-pink-500 bg-white p-8 transform hover:scale-105 transition-transform duration-300"
+              className="flex flex-col rounded-lg border-4 border-pink-500 bg-white p-8 transform hover:scale-105 transition-transform duration-300 scroll-fade"
             >
               <div className="flex justify-between items-center mb-4">
                 <h3 className="text-2xl font-extrabold uppercase text-pink-500">{project.title}</h3>
@@ -213,14 +232,14 @@ function App() {
       
       {/* Share */}
       <section id="share" className="h-screen w-screen flex flex-col justify-center items-center snap-start text-pink-500 bg-pink-100 px-6">
-        <h2 className="relative text-3xl md:text-5xl uppercase tracking-widest mb-12 text-pink-500">
+        <h2 className="relative text-3xl md:text-5xl uppercase tracking-widest mb-12 text-pink-500 scroll-fade">
           {t.shareTitle}
           <svg className="absolute -bottom-3 left-0 w-full h-2" viewBox="0 0 200 10" preserveAspectRatio="none">
             <path d="M0 5 Q25 0 50 5 T100 5 T150 5 T200 5" stroke="#facc15" strokeWidth="3" fill="transparent" strokeDasharray="10 2" />
           </svg>
         </h2>
-        <p className="text-md md:text-lg max-w-prose text-center leading-relaxed mb-8">{t.shareText}</p>
-          <div className="flex flex-wrap justify-center gap-4 text-xl">
+        <p className="text-md md:text-lg max-w-prose text-center leading-relaxed mb-8 scroll-fade">{t.shareText}</p>
+          <div className="flex flex-wrap justify-center gap-4 text-xl scroll-fade">
               <a
                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
                 target="_blank"
